@@ -57,6 +57,11 @@ const Home = () => {
       return
     }
     setBookmarked([...bookmarked, item])
+
+    //remove the bookmarked item from the addedRes
+    const filteredAddedRes = addedRes.filter((e)=>e.fields.Name!==item.fields.Name)
+    setAddedRes(filteredAddedRes)
+    
     toast.success('Restaurant bookmarked!')
   }
 

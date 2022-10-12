@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { StateContext } from '../../Context/Context'
 
 const SideBar = ({active}) => {
   const activeClass = 'hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-800 dark:text-gray-100 rounded-lg bg-gray-100 dark:bg-gray-600'
   const notActiveClass = 'hover:text-gray-800 hover:bg-gray-100 flex items-center p-2 my-6 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg '
+  const {setUser} = useContext(StateContext)
 
   return (
    <div className='fixed'>
@@ -45,7 +47,18 @@ const SideBar = ({active}) => {
           <span className="mx-4 text-lg font-normal">Bookmarked</span>
           <span className="flex-grow text-right"></span>
         </Link>
-      
+        <p onClick={()=>{setUser(null)}} className="hover:text-gray-800 cursor-pointer hover:bg-gray-100 flex items-center p-2 my-6 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200  text-gray-600 dark:text-gray-400 rounded-lg " href="#">
+          <svg width={20} height={20} className="m-auto" fill="currentColor" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1070 1178l306-564h-654l-306 564h654zm722-282q0 182-71 348t-191 286-286 191-348 71-348-71-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z">
+            </path>
+          </svg>
+          <span className="mx-4 text-lg font-normal">
+            Logout
+          </span>
+          <span className="flex-grow text-right">
+          </span>
+        </p>
+
       </nav>
     </div>
   </div>

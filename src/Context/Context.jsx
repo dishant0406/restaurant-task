@@ -11,7 +11,7 @@ const ContextProvider = ({children}) => {
 
   return (
     <StateContext.Provider 
-    value={{ user,
+    value={{ user:typeof user === 'string'?JSON.parse(user):user,
        setUser, 
        bookmarked:typeof bookmarked==='string'?JSON.parse(bookmarked):bookmarked, 
        setBookmarked, 
